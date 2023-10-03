@@ -25,10 +25,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.adas.models.NoticiasModel;
 import com.adas.models.UsuariosModel;
 import com.adas.services.INoticiaService;
-import com.adas.services.INoticiaService;
 import com.adas.services.IUsuarioService;
 
-import jakarta.websocket.server.PathParam;
 
 @Controller
 @RequestMapping("/admin/usuarios")
