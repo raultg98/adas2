@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.0.4</version>
+		<version>3.0.11</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.example</groupId>
@@ -60,10 +60,11 @@
 			<scope>runtime</scope>
 		</dependency>
 		
+		<!-- 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-		</dependency>
+		</dependency> -->
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -83,6 +84,13 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 		
+		<dependency>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  			<version>3.11.0</version>
+  			<type>maven-plugin</type>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
@@ -90,6 +98,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<!-- 
 				<configuration>
 					<excludes>
 						<exclude>
@@ -97,7 +106,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
-				</configuration>
+				</configuration> -->
 			</plugin>
 		</plugins>
 	</build>
