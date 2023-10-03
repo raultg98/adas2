@@ -60,11 +60,10 @@
 			<scope>runtime</scope>
 		</dependency>
 		
-		<!-- 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-		</dependency> -->
+		</dependency>
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -84,13 +83,6 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 		
-		<dependency>
-  			<groupId>org.apache.maven.plugins</groupId>
-  			<artifactId>maven-compiler-plugin</artifactId>
-  			<version>3.11.0</version>
-  			<type>maven-plugin</type>
-		</dependency>
-		
 	</dependencies>
 
 	<build>
@@ -98,7 +90,6 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-				<!-- 
 				<configuration>
 					<excludes>
 						<exclude>
@@ -106,7 +97,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
-				</configuration> -->
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
