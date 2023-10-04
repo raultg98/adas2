@@ -21,23 +21,37 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
-@RequestMapping("/galeria")
+@RequestMapping("/admin/galeria")
 public class GaleriaController {
 	
 	private String directorioImagenes = "src//main//resources//static//img/galeria";
 	
+//	@GetMapping("")
+//	public String getAllGaleria(Model model) throws IOException {
+//		File carpeta = new File(this.directorioImagenes);
+//		List<String> archivos = new ArrayList<String>();
+//		
+//		for(File archivo : carpeta.listFiles()) {
+//			archivos.add("/img/galeria/"+ archivo.getName());
+//		}
+//		
+//		model.addAttribute("fotos", archivos);
+//		
+//		return "galeria/galeria.html";
+//	}
+	
 	@GetMapping("")
-	public String getAllGaleria(Model model) throws IOException {
+	public String getGaleriaAdmin(Model model) {
 		File carpeta = new File(this.directorioImagenes);
 		List<String> archivos = new ArrayList<String>();
 		
 		for(File archivo : carpeta.listFiles()) {
-			archivos.add("/img/galeria/"+ archivo.getName());
+			archivos.add(archivo.getName());
 		}
 		
 		model.addAttribute("fotos", archivos);
 		
-		return "galeria/galeria.html";
+		return "galeria/galeria_admin.html";
 	}
 
 	@GetMapping("/add")
@@ -79,24 +93,10 @@ public class GaleriaController {
 			}
 		}
 		
-		return "redirect:/galeria/add";
+		return "redirect:/admin/galeria/add";
 	}
 	
-	@GetMapping("admin")
-	public String getGaleriaAdmin(Model model) {
-		File carpeta = new File(this.directorioImagenes);
-		List<String> archivos = new ArrayList<String>();
-		
-		for(File archivo : carpeta.listFiles()) {
-			archivos.add(archivo.getName());
-		}
-		
-		model.addAttribute("fotos", archivos);
-		
-		return "galeria/galeria_admin.html";
-	}
-	
-	@GetMapping("/admin/borrar/{nombre}")
+	@GetMapping("/borrar/{nombre}")
 	public String deleteImagen(@PathVariable("nombre") String nombre,
 							   RedirectAttributes flash) {
 		File carpeta = new File(this.directorioImagenes);
@@ -111,6 +111,6 @@ public class GaleriaController {
 		flash.addFlashAttribute("clase", "success");
 		flash.addFlashAttribute("message", "Se ha eliminado correctamente la imagen");
 		
-		return "redirect:/galeria/admin";
+		return "redirect:/admin/galeria";
 	}
 }

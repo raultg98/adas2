@@ -1,6 +1,7 @@
 package com.adas.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
@@ -29,6 +30,20 @@ public class HomeController {
 	
 	private String directorioGaleria = "src//main//resources//static//img/galeria";
 	private String pathActividades = "src//main//resources//static//img//actividades//";
+	
+	@GetMapping("/galeria")
+	public String getAllGaleria(Model model) throws IOException {
+		File carpeta = new File(this.directorioGaleria);
+		List<String> archivos = new ArrayList<String>();
+		
+		for(File archivo : carpeta.listFiles()) {
+			archivos.add("/img/galeria/"+ archivo.getName());
+		}
+		
+		model.addAttribute("fotos", archivos);
+		
+		return "galeria/galeria.html";
+	}
 
 	@GetMapping("")
 	public String showIndex(Model model) {

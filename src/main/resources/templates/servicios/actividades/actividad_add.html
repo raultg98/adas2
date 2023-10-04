@@ -8,7 +8,7 @@
 
     <main class="mx-5 my-2">
         
-        <form th:action="@{/servicios/actividades/add/}+ ${actividad.id}" th:object="${actividad}" method="POST" id="formulario">
+        <form th:action="@{/admin/actividades/add/}+ ${actividad.id}" th:object="${actividad}" method="POST" id="formulario">
             <div id="mensajeError"></div>
 
             <div class="form-group">

@@ -34,7 +34,8 @@ import com.adas.models.ActividadesModel;
 import com.adas.services.IActividadService;
 
 @Controller
-@RequestMapping("/servicios/actividades")
+//@RequestMapping("/servicios/actividades")
+@RequestMapping("/")
 public class ActividadesController {
 	
 	@Autowired
@@ -42,49 +43,7 @@ public class ActividadesController {
 	
 	private String pathActividades = "src//main//resources//static//img//actividades//";
 
-	
-	// REVISAR CODIGO PARA METERLO TODOS EN UN BUCLE.
-//	@GetMapping("")
-//	public String findAllActividades(Model model) {
-//		List<ActividadesModel> allActidades = this.actividadService.findAll();
-//		
-//		List<ActividadesModel> actividades2014 = new ArrayList<ActividadesModel>();
-//		List<ActividadesModel> actividades2015 = new ArrayList<ActividadesModel>();
-//		List<ActividadesModel> actividades2016 = new ArrayList<ActividadesModel>();
-//		List<ActividadesModel> actividades2017 = new ArrayList<ActividadesModel>();
-//		List<ActividadesModel> actividades2018 = new ArrayList<ActividadesModel>();
-//		List<ActividadesModel> actividades2019 = new ArrayList<ActividadesModel>();
-//		List<ActividadesModel> actividades2020 = new ArrayList<ActividadesModel>();
-//		
-//		for(int i=0; i<allActidades.size(); i++) {
-//			Calendar calendar = Calendar.getInstance();
-//			calendar.setTime(allActidades.get(i).getFecha());
-//			int fechaActual = calendar.get(Calendar.YEAR);
-//			
-//			switch (fechaActual) {
-//				case 2014: actividades2014.add(allActidades.get(i)); break;
-//				case 2015: actividades2015.add(allActidades.get(i)); break;
-//				case 2016: actividades2016.add(allActidades.get(i)); break;
-//				case 2017: actividades2017.add(allActidades.get(i)); break;
-//				case 2018: actividades2018.add(allActidades.get(i)); break;
-//				case 2019: actividades2019.add(allActidades.get(i)); break;
-//				case 2020: actividades2020.add(allActidades.get(i)); break;
-//			}
-//			
-//		}
-//		
-//		model.addAttribute("actividades2014", actividades2014);
-//		model.addAttribute("actividades2015", actividades2015);
-//		model.addAttribute("actividades2016", actividades2016);
-//		model.addAttribute("actividades2017", actividades2017);
-//		model.addAttribute("actividades2018", actividades2018);
-//		model.addAttribute("actividades2019", actividades2019);
-//		model.addAttribute("actividades2020", actividades2020);
-//		
-//		return "servicios/actividades/actividades.html";
-//	}
-	
-	@GetMapping("")
+	@GetMapping("/actividades")
 	public String findAllActividades2(Model model) { 
 		List<ActividadesModel> allActividades = this.actividadService.findAll();
 		List<ActividadesAcordeonModel> actividadesPorAnio = new ArrayList<ActividadesAcordeonModel>();
@@ -128,7 +87,7 @@ public class ActividadesController {
 	
 	
 	/****************** MODIFICAR ESTE METODO */
-	@GetMapping("/actividad/{id}")
+	@GetMapping("/actividades/actividad/{id}")
 	public String findActividadById(@PathVariable("id") Integer id,
 								 	Model model) {
 		ActividadesModel actividad = this.actividadService.findById(id);
@@ -150,7 +109,7 @@ public class ActividadesController {
 		return "servicios/actividades/actividad.html";
 	}
 	
-	@GetMapping("/admin")
+	@GetMapping("/admin/actividades")
 	public String findAllActividadesAdmin(Model model) {
 		List<ActividadesModel> allActividades = this.actividadService.findAll();
 		List<ActividadesAcordeonModel> actividadesPorAnio = new ArrayList<ActividadesAcordeonModel>();
@@ -193,7 +152,7 @@ public class ActividadesController {
 	}
 	
 	/******************** ACTIVIDAD ADMIN ********************/
-	@GetMapping("/actividad/admin/{id}")
+	@GetMapping("/admin/actividades/actividad/{id}")
 	public String findActividadByIdAdmin(@PathVariable("id") Integer id,
 								 	  	 Model model) {
 		ActividadesModel actividad = this.actividadService.findById(id);
@@ -214,7 +173,7 @@ public class ActividadesController {
 		return "servicios/actividades/actividadAdmin.html";
 	}
 
-	@GetMapping("/actividad/admin/borrar/{anio}/{id}/{nombreFoto}")
+	@GetMapping("/admin/actividades/actividad/borrar/{anio}/{id}/{nombreFoto}")
 	public String deletePhotoByActividad(@PathVariable("anio") String anio, 
 										 @PathVariable("id") Integer id, 
 										 @PathVariable("nombreFoto") String nombre, 
@@ -232,12 +191,13 @@ public class ActividadesController {
 		flash.addFlashAttribute("clase", "success");
 		flash.addFlashAttribute("message", "Se ha eliminado correctamente la imagen de "+ actividad.getNombre());
 		
-		return "redirect:/servicios/actividades/actividad/admin/"+ id;
+		return "redirect:/admin/actividades/actividad/"+ id;
 	}
 
 	
 	/******************** ADD ********************/
-	@GetMapping("/add/{anio}")
+//	@GetMapping("/admin/add/{anio}")
+	@GetMapping("/admin/actividades/add/{anio}")
 	public String createdNewActividad(@PathVariable("anio") String anio,
 						  			  Model model) {
 		ActividadesModel actividad = new ActividadesModel();
@@ -247,7 +207,7 @@ public class ActividadesController {
 		return "servicios/actividades/actividad_add.html";
 	}
 	
-	@PostMapping("/add/{anio}")
+	@PostMapping("/admin/actividades/add/{anio}")
 	public String saveActividad(@PathVariable("anio") String anio, 
 								@Validated ActividadesModel actividad, 
 								BindingResult result, 
@@ -269,11 +229,11 @@ public class ActividadesController {
 		flash.addFlashAttribute("clase", "success");
 		flash.addFlashAttribute("message", "Se ha registrado correctamente la actividad");
 		
-		return "redirect:/servicios/actividades/admin";
+		return "redirect:/admin/actividades";
 	}
 	
 	/******************** ADD ACTIVIDAD AÑO ********************/
-	@GetMapping("/actividad/add/{anio}/{id}")
+	@GetMapping("/admin/actividades/actividad/add/{anio}/{id}")
 	public String showAddGaleriaActividadByYear(@PathVariable("anio") String anio, 
 			   									@PathVariable("id") Integer id,
 			   									Model model) {
@@ -285,7 +245,7 @@ public class ActividadesController {
 		return "servicios/actividades/actividadesGaleria_add.html";
 	}
 	
-	@PostMapping("/actividad/add/{anio}/{id}")
+	@PostMapping("/admin/actividades/actividad/add/{anio}/{id}")
 	public String saveActividadGaleria(@PathVariable("anio") String anio, 
 									   @PathVariable("id") Integer id, 
 									   @RequestParam("addFoto") List<MultipartFile> imagenes, 
@@ -325,11 +285,11 @@ public class ActividadesController {
 			}
 		}
 		
-		return "redirect:/servicios/actividades/admin";
+		return "redirect:/admin/actividades";
 	}
 	
 	/******************** EDITAR ********************/
-	@GetMapping("/actividad/editar/{id}")
+	@GetMapping("/admin/actividades/actividad/editar/{id}")
 	public String editarActividad(@PathVariable("id") Integer id,
 								  Model model){
 		ActividadesModel actividad = this.actividadService.findById(id);
@@ -339,7 +299,7 @@ public class ActividadesController {
 		return "servicios/actividades/actividad_editar.html";
 	}
 	
-	@PostMapping("/actividad/editar/{id}")
+	@PostMapping("/admin/actividades/actividad/editar/{id}")
 	public String editandoActividad(@PathVariable("id") Integer id,
 									@Validated ActividadesModel actividad, 
 									BindingResult result,
@@ -363,11 +323,11 @@ public class ActividadesController {
 		flash.addFlashAttribute("clase", "success");
 		flash.addFlashAttribute("message", "Se ha editado correctamente la actividad, "+ actividad.getId() +" - "+ actividad.getNombre());
 		
-		return "redirect:/servicios/actividades/admin";
+		return "redirect:/admin/actividades";
 	}
 	
 	/******************** BORRAR ACTIVIDAD ********************/
-	@GetMapping("/actividad/borrar/{id}")
+	@GetMapping("/admin/actividades/actividad/borrar/{id}")
 	public String deleteActividad(@PathVariable("id") Integer id,
 								  RedirectAttributes flash) {
 		ActividadesModel actividad = this.actividadService.findById(id);
@@ -399,7 +359,7 @@ public class ActividadesController {
 			flash.addFlashAttribute("message", "ERROR: La actividad no se ha podido eliminar, "+ id);
 		}
 		
-		return "redirect:/servicios/actividades/admin";
+		return "redirect:/admin/actividades";
 	}
 	
 	private int obtenerAnioActividadByNombre(String nombre) {
@@ -421,4 +381,45 @@ public class ActividadesController {
 		
 		return anio;
 	}
+	
+	// REVISAR CODIGO PARA METERLO TODOS EN UN BUCLE.
+//		@GetMapping("")
+//		public String findAllActividades(Model model) {
+//			List<ActividadesModel> allActidades = this.actividadService.findAll();
+//			
+//			List<ActividadesModel> actividades2014 = new ArrayList<ActividadesModel>();
+//			List<ActividadesModel> actividades2015 = new ArrayList<ActividadesModel>();
+//			List<ActividadesModel> actividades2016 = new ArrayList<ActividadesModel>();
+//			List<ActividadesModel> actividades2017 = new ArrayList<ActividadesModel>();
+//			List<ActividadesModel> actividades2018 = new ArrayList<ActividadesModel>();
+//			List<ActividadesModel> actividades2019 = new ArrayList<ActividadesModel>();
+//			List<ActividadesModel> actividades2020 = new ArrayList<ActividadesModel>();
+//			
+//			for(int i=0; i<allActidades.size(); i++) {
+//				Calendar calendar = Calendar.getInstance();
+//				calendar.setTime(allActidades.get(i).getFecha());
+//				int fechaActual = calendar.get(Calendar.YEAR);
+//				
+//				switch (fechaActual) {
+//					case 2014: actividades2014.add(allActidades.get(i)); break;
+//					case 2015: actividades2015.add(allActidades.get(i)); break;
+//					case 2016: actividades2016.add(allActidades.get(i)); break;
+//					case 2017: actividades2017.add(allActidades.get(i)); break;
+//					case 2018: actividades2018.add(allActidades.get(i)); break;
+//					case 2019: actividades2019.add(allActidades.get(i)); break;
+//					case 2020: actividades2020.add(allActidades.get(i)); break;
+//				}
+//				
+//			}
+//			
+//			model.addAttribute("actividades2014", actividades2014);
+//			model.addAttribute("actividades2015", actividades2015);
+//			model.addAttribute("actividades2016", actividades2016);
+//			model.addAttribute("actividades2017", actividades2017);
+//			model.addAttribute("actividades2018", actividades2018);
+//			model.addAttribute("actividades2019", actividades2019);
+//			model.addAttribute("actividades2020", actividades2020);
+//			
+//			return "servicios/actividades/actividades.html";
+//		}
 }

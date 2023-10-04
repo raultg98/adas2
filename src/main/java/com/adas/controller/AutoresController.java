@@ -18,7 +18,7 @@ import com.adas.services.IAutorService;
 import com.adas.services.IMensajeService;
 
 @Controller
-@RequestMapping("/autores")
+@RequestMapping("/admin/autores")
 public class AutoresController {
 	
 	@Autowired

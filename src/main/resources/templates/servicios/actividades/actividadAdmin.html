@@ -21,17 +21,17 @@
 
         <section>
             <div class="my-2 botonera">
-                <a th:href="@{/servicios/actividades/actividad/borrar/}+ ${actividad.id}"
+                <a th:href="@{/admin/actividades/actividad/borrar/}+ ${actividad.id}"
                    class="colorBordeBorrar colorTextoBorrar btnBorrar text-center botonera-btn">
                     BORRAR
                 </a>
     
-                <a th:href="@{/servicios/actividades/actividad/editar/}+ ${actividad.id}"
+                <a th:href="@{/admin/actividades/actividad/editar/}+ ${actividad.id}"
                    class="colorBordeEditar colorTextoEditar btnEditar text-center botonera-btn">
                     EDITAR
                 </a>
     
-                <a th:href="@{/servicios/actividades/actividad/add/}+ ${actividadAnio} +'/'+ ${actividad.id}"
+                <a th:href="@{/admin/actividades/actividad/add/}+ ${actividadAnio} +'/'+ ${actividad.id}"
                    class="colorBordeAdd colorTextoAdd btnAdd text-center botonera-btn">
                     ADD
                 </a>
@@ -73,7 +73,7 @@
                          class="galeriaContenedor_imagen">
     
                     <div class="imagenHover">
-                        <a th:href="@{/servicios/actividades/actividad/admin/borrar/}+ ${actividadAnio} +'/'+ ${actividad.id} +'/'+ ${foto}"
+                        <a th:href="@{/admin/actividades/actividad/borrar/}+ ${actividadAnio} +'/'+ ${actividad.id} +'/'+ ${foto}"
                            class="colorBordeBorrar colorTextoBorrar btnBorrar text-center imagenHover_boton">
                             <strong>BORRAR</strong>
                         </a>

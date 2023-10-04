@@ -7,6 +7,9 @@
     <nav th:replace="~{fragments/navUsuarios :: nav_bar_usuarios}"></nav>
 
     <main class="mx-5">
+
+        <div th:replace="~{fragments/acordeonNoticia :: acordeonNoticia}"></div>
+
         <form th:action="@{/admin/usuarios/usuario/add/}+ ${usuario.id}" th:object="${noticia}" method="POST" class="mx-2" 
               id="formulario" enctype="multipart/form-data">
 

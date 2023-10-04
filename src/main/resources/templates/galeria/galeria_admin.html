@@ -9,7 +9,7 @@
     <main class="mx-5">
         <section>
             <div class="d-grid my-2">
-                <a th:href="@{/galeria/add}" class="colorTextoAdd colorBordeAdd btnAdd text-center col-12 p-1">
+                <a th:href="@{/admin/galeria/add}" class="colorTextoAdd colorBordeAdd btnAdd text-center col-12 p-1">
                     <strong>SUBIR IMAGENES</strong>
                 </a>
             </div>
@@ -30,7 +30,7 @@
                         <img th:src="'/img/galeria/'+ ${foto}" id="imagen" class="galeriaContenedor_imagen">
         
                         <div class="imagenHover">
-                            <a th:href="@{/galeria/admin/borrar/}+ ${foto}" 
+                            <a th:href="@{/admin/galeria/borrar/}+ ${foto}" 
                                class="colorBordeBorrar colorTextoBorrar btnBorrar text-center imagenHover_boton">
                                 <strong>BORRAR</strong>
                             </a>

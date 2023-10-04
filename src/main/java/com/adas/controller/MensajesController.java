@@ -23,7 +23,7 @@ import com.adas.services.IMensajeService;
 import com.adas.services.INoticiaService;
 
 @Controller
-@RequestMapping("/mensajes")
+@RequestMapping("/admin/mensajes")
 public class MensajesController {
 
 	@Autowired
@@ -109,6 +109,6 @@ public class MensajesController {
 			flash.addFlashAttribute("message", "NO SE HA PODIDO ELMINAR EL MENSAJE, "+ id);
 		}
 		
-		return "redirect:/mensajes";
+		return "redirect:/admin/mensajes";
 	}
 }

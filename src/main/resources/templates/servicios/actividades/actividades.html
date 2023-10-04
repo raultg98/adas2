@@ -25,7 +25,7 @@
                     <div class="accordion-body">
 
                         <div th:each="actividad : ${actividadesAnio.actividades}" class="acordeonActividad">
-                            <a th:href="@{/servicios/actividades/actividad/} +${actividad.id}" class="acordeonActividad_enlace">
+                            <a th:href="@{/actividades/actividad/} +${actividad.id}" class="acordeonActividad_enlace">
                                 <strong th:text="${actividad.nombre}"></strong>
                                 <span th:text="${#dates.format(actividad.fecha, 'dd/MMM/yyyy')}"></span>
                             </a>

@@ -1,12 +1,12 @@
 package com.adas;
 
-//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-//import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
+@EnableAutoConfiguration
 public class Adas2Application implements CommandLineRunner{
 
 //	@Autowired
@@ -18,9 +18,5 @@ public class Adas2Application implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-//		String pass1 = "1234";
-//		
-//		System.out.println(passEncoder.encode(pass1));
 	}
-
 }

@@ -31,7 +31,7 @@
 
                     <div class="tarjetasActividades">
 
-                        <a th:href="@{/servicios/actividades/add/}+ ${actividadesAnio.anio}" class="acordeonBotonAdd text-center">
+                        <a th:href="@{/admin/actividades/add/}+ ${actividadesAnio.anio}" class="acordeonBotonAdd text-center">
                             ADD ACTIVIDAD
                         </a>
 
@@ -51,22 +51,22 @@
                             </div>
 
                             <div class="tarjetaActividad_hover">
-                                <a th:href="@{/servicios/actividades/actividad/borrar/}+ ${actividad.id}"
+                                <a th:href="@{/admin/actividades/actividad/borrar/}+ ${actividad.id}"
                                    class="colorBordeBorrar colorTextoBorrar btnBorrar text-center tarjetaActividad_hover-boton">
                                     <strong>BORRAR</strong>
                                 </a>
 
-                                <a th:href="@{/servicios/actividades/actividad/editar/}+ ${actividad.id}"
+                                <a th:href="@{/admin/actividades/actividad/editar/}+ ${actividad.id}"
                                    class="colorBordeEditar colorTextoEditar btnEditar text-center tarjetaActividad_hover-boton">
                                     <strong>EDITAR</strong>
                                 </a>
 
-                                <a th:href="@{/servicios/actividades/actividad/add/}+ ${actividadesAnio.anio} +'/'+ ${actividad.id}"
+                                <a th:href="@{/admin/actividades/actividad/add/}+ ${actividadesAnio.anio} +'/'+ ${actividad.id}"
                                    class="colorBordeAdd colorTextoAdd btnAdd text-center tarjetaActividad_hover-boton">
                                     <strong>ADD</strong>
                                 </a>
 
-                                <a th:href="@{/servicios/actividades/actividad/admin/}+ ${actividad.id}"
+                                <a th:href="@{/admin/actividades/actividad/}+ ${actividad.id}"
                                    class="colorBorde colorTexto btnNoticia text-center tarjetaActividad_hover-boton">
                                     <strong>ACTIVIDAD</strong>
                                 </a>
