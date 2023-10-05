@@ -25,10 +25,8 @@ public class SecurityConfig {
 					authRequest
 						.antMatchers("/").permitAll()
 						.antMatchers("/admin/**").authenticated()
-						.antMatchers("/css/**", "/js/**", "/img/**", "/doc/**").permitAll()
-						.anyRequest().permitAll()
-//						.antMatchers("/sobreNosotros/**").permitAll()
-//						.anyRequest().authenticated()
+//						.antMatchers("/css/**", "/js/**", "/img/**", "/doc/**").permitAll()
+//						.anyRequest().permitAll()
 						)
 				.formLogin(withDefaults())
 				.build();
