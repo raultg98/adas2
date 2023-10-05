@@ -23,7 +23,7 @@ public class SecurityConfig {
 						.disable())
 				.authorizeHttpRequests(authRequest -> 
 					authRequest
-						.antMatchers("/").permitAll()
+						.antMatchers("").permitAll()
 						.antMatchers("/admin/**").authenticated()
 //						.antMatchers("/css/**", "/js/**", "/img/**", "/doc/**").permitAll()
 //						.anyRequest().permitAll()
