@@ -63,7 +63,7 @@ public class AutoresController {
 			flash.addFlashAttribute("message", "NO SE HA PODIDO ELMINAR EL AUTOR, "+ id);
 		}
 		
-		return "redirect:/autores";
+		return "redirect:/admin/autores";
 	}
 	
 	
