@@ -15,19 +15,18 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-	@Bean
-	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
-		return http
-				.csrf(csrf -> 
-						csrf
-						.disable())
-				.authorizeHttpRequests(authRequest -> 
-					authRequest
-						.antMatchers("/admin/**").authenticated()
-//						.antMatchers("/css/**", "/js/**", "/img/**", "/doc/**").permitAll()
-						.anyRequest().permitAll()
-						)
-				.formLogin(withDefaults())
-				.build();
-	}
+//	@Bean
+//	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
+//		return http
+//				.csrf(csrf -> 
+//						csrf
+//						.disable())
+//				.authorizeHttpRequests(authRequest -> 
+//					authRequest
+//						.antMatchers("/admin/**").authenticated()
+//						.anyRequest().permitAll()
+//						)
+//				.formLogin(withDefaults())
+//				.build();
+//	}
 }
