@@ -24,8 +24,8 @@ public class SecurityConfig {
 				.authorizeHttpRequests(authRequest -> 
 					authRequest
 						.antMatchers("/admin/**").authenticated()
-						.antMatchers("/").permitAll()
-//						.anyRequest().permitAll()
+//						.antMatchers("/").permitAll()
+						.anyRequest().permitAll()
 						)
 				.formLogin(withDefaults())
 				.build();
